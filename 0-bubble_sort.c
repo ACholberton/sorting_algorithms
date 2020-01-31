@@ -1,18 +1,6 @@
 #include "sort.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
  * bubble_sort - sorts an array of integers in ascending order using the Bubble
  *sort algorithm.
  *@array: is the array of integers to be reordered
@@ -21,9 +9,11 @@ int _putchar(char c)
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, temp, temp2;
+	size_t i, temp;
 	int swapper;
 
+	if (size == o || size == 1)
+		return;
 	do {
 		swapper = 0;
 		for (i = 0; i < size - 1; i++)
@@ -34,21 +24,9 @@ void bubble_sort(int *array, size_t size)
 				array[i] = array[i + 1];
 				array[i + 1] = temp;
 				swapper = 1;
-				for (temp = 0; temp < size; temp++)
-				{
-					temp2 = array[temp];
-					if (temp2 > 9)
-						_putchar(temp2 / 10 + '0');
-					_putchar(temp2 % 10 + '0');
-					if (array[temp + 1] != '\0')
-					{
-						_putchar(',');
-						_putchar(' ');
-					}
-				}
-				if (swapper == 1)
-					_putchar(10);
 			}
+			if (swapper == 1)
+				print_array(array, size);
 		}
 	} while (swapper == 1);
 }
