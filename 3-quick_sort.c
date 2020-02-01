@@ -35,19 +35,27 @@ int swap(int* a, int* b)
 int partition(int *array, int low, int high, size_t size)
 { 
 	int pivot = array[high];
-	int i = low - 1, j, swapper = 0;
-	(void) size;
+	int i = low - 1, j;
 
 	for (j = low; j <= high - 1; j++)
 	{
-		swapper = 0;
 		if (array[j] < pivot)
         	{
 			i++;
-			swapper += swap(&array[i], &array[j]);
+			/* If i and j are in the same index, swapping is pointless */
+			if (array[j] != array[i])
+			 {
+				swap(&array[i], &array[j]);
+				print_array(array, size);
+			}
 		}
 	}
-	swapper = swap(&array[i + 1], &array[high]);
+
+	if (array[i + 1] != array[high])
+	{
+		swap(&array[i + 1], &array[high]);
+		print_array(array, size);
+	}
 	return (i + 1);
 }
 
