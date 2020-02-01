@@ -29,5 +29,7 @@ void quick_sort(int *array, size_t size);
 void quick_sort_alt(int *array, int low, int high, size_t size);
 int partition(int *array, int low, int high, size_t size);
 void swap(int *a, int *b);
+void final_swap(listint_t **list, listint_t *current);
+void list_swapper(listint_t *current);
 
 #endif
