@@ -4,22 +4,20 @@
  * swap - Function that swaps two elements
  * @a: The first element to be swapped
  * @b: The second element to be swapped
- * Return: 1. Cannot fail
+ * Return: Nothing
  * Description: Note that the values being passed in are
  * pointers to the value, not the value itself. This is
  * because passing in the value itself creates a copy of
  * the value for swapping, but the original themselves
  * are not affected. We want the originals to be swapped
  */
-int swap(int* a, int* b)
+void swap(int* a, int* b)
 {
 	int temp;
 
 	temp = *a;
 	*a = *b;
 	*b = temp;
-
-	return (1);
 }
 
 /**
@@ -33,7 +31,7 @@ int swap(int* a, int* b)
  * or end of the "newly split" array is at
  */
 int partition(int *array, int low, int high, size_t size)
-{ 
+{
 	int pivot = array[high];
 	int i = low - 1, j;
 
@@ -90,11 +88,13 @@ void quick_sort_alt(int *array, int low, int high, size_t size)
  * the quick sort algorithm requires knowing the beginning
  * and ending of the array for partitioning purposes,
  * the quick_sort_alt function is created
- */  
+ */
 void quick_sort(int *array, size_t size)
-{ 
+{
 	int low = 0, high;
 
+	if (size == 0 || size == 1)
+		return;
 	high = (int)size - 1;
 	quick_sort_alt(array, low, high, size);
-} 
+}
