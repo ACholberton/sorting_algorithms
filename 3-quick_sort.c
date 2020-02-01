@@ -11,7 +11,7 @@
  * the value for swapping, but the original themselves
  * are not affected. We want the originals to be swapped
  */
-void swap(int* a, int* b)
+void swap(int *a, int *b)
 {
 	int temp;
 
@@ -38,11 +38,11 @@ int partition(int *array, int low, int high, size_t size)
 	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] < pivot)
-        	{
+		{
 			i++;
 			/* If i and j are in the same index, swapping is pointless */
 			if (array[j] != array[i])
-			 {
+			{
 				swap(&array[i], &array[j]);
 				print_array(array, size);
 			}
@@ -58,7 +58,7 @@ int partition(int *array, int low, int high, size_t size)
 }
 
 /**
- * qucik_sort_alt - Function that actually does the quick sort
+ * quick_sort_alt - Function that actually does the quick sort
  * @array: The passed in array
  * @low: The lower end of the array
  * @high: The upper end of the array
@@ -93,8 +93,13 @@ void quick_sort(int *array, size_t size)
 {
 	int low = 0, high;
 
-	if (size == 0 || size == 1)
+	if (array == NULL || size < 2)
 		return;
+
+	/**
+	 * Size is converted to int for high. Negative numbers
+	 * may be needed
+	 */
 	high = (int)size - 1;
 	quick_sort_alt(array, low, high, size);
 }
