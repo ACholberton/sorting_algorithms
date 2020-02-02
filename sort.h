@@ -1,5 +1,5 @@
 #ifndef SORT_H
-#define SORT_T
+#define SORT_H
 
 #include <unistd.h>
 #include <string.h>
@@ -31,5 +31,9 @@ int partition(int *array, int low, int high, size_t size);
 void swap(int *a, int *b);
 void final_swap(listint_t **list, listint_t *current);
 void list_swapper(listint_t *current);
+void cocktail_sort_list(listint_t **list);
+void cocktail_shaker(listint_t **list);
+void forward_shake(listint_t *current);
+void backward_shake(listint_t *current);
 
 #endif
