@@ -58,6 +58,8 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *current = *list, *list_scan = NULL, *head = *list;
 
+	if (list == NULL)
+		return;
 	if (*list == NULL || (*list)->next == NULL)
 		return;
 
