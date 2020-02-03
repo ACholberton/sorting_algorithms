@@ -39,5 +39,9 @@ void counting_sort(int *array, size_t size);
 void value_checker(int *array, int *new_array, size_t size);
 void array_for_print(int *new_array, size_t size);
 void rewrite_array(int *array, int *new_array, int *third_array, size_t size);
+void merge_sort(int *array, size_t size);
+void split_array(int *array, int *temp, size_t begin, size_t end);
+void rebuild_array(int *array, int *temp, size_t begin, size_t mid,
+		size_t end);
 
 #endif
