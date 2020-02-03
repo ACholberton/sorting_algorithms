@@ -35,14 +35,15 @@ void node_swapper(listint_t *current)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list;
+	listint_t *current = *list, *temp = NULL;
 
 	if (!list || !*list || (*list)->next == NULL)
 		return;
 
 	while (current != NULL)
 	{
-		if (current->prev != NULL && current->n < current->prev->n)
+		temp = current->next;
+		while (current->prev != NULL && current->n < current->prev->n)
 		{
 			node_swapper(current);
 			if ((*list)->prev != NULL && ((*list)->n > (*list)->prev->n))
@@ -50,7 +51,6 @@ void insertion_sort_list(listint_t **list)
 
 			print_list(*list);
 		}
-		else
-			current = current->next;
+		current = temp;
 	}
 }
