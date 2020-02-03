@@ -114,4 +114,6 @@ void counting_sort(int *array, size_t size)
 	value_checker(array, new_array, size);
 	array_for_print(new_array, big_num + 1);
 	rewrite_array(array, new_array, third_array, size);
+	free(new_array);
+	free(third_array);
 }
