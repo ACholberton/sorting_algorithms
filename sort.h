@@ -42,6 +42,8 @@ void rewrite_array(int *array, int *new_array, int *third_array, size_t size);
 void merge_sort(int *array, size_t size);
 void split_array(int *array, int *temp, size_t begin, size_t end);
 void rebuild_array(int *array, int *temp, size_t begin, size_t mid,
-		size_t end);
+			size_t end);
+void print_before_merge(int *array, int *temp, size_t begin, size_t mid,
+			size_t end);
 
 #endif
