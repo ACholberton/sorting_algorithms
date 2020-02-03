@@ -1,5 +1,12 @@
 #include "sort.h"
 
+/**
+ * node_swapper - Function that swaps the
+ * place of two nodes and rebuilds connections with
+ * the rest of the list
+ * @current: The current node to be swapped
+ * Return: Nothing
+ */
 void node_swapper(listint_t *current)
 {
 	listint_t *temp = current->prev;
