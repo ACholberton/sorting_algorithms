@@ -35,10 +35,12 @@ void node_swapper(listint_t *current)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list, *temp = NULL;
+	listint_t *current = NULL, *temp = NULL;
 
 	if (!list || !*list || (*list)->next == NULL)
 		return;
+
+	current = *list;
 
 	while (current != NULL)
 	{
