@@ -40,6 +40,12 @@ void backward_shake(listint_t *current)
 	temp->prev = current;
 }
 
+void start_of_list(listint_t **list)
+{
+	while ((*list)->prev != NULL && (*list)->n > (*list)->prev->n)
+		*list = (*list)->prev;
+}
+
 /**
  * cocktail_shaker - The true driving function. Utilizing the
  * concept of a cocktail shaker, this function sorts a list
@@ -58,6 +64,7 @@ void cocktail_shaker(listint_t **list)
 			if (current->n > current->next->n)
 			{
 				forward_shake(current);
+				start_of_list(list);
 				print_list(*list);
 			}
 			else
@@ -68,8 +75,7 @@ void cocktail_shaker(listint_t **list)
 			if (current->n < current->prev->n)
 			{
 				backward_shake(current);
-				if ((*list)->prev != NULL && (*list)->n > (*list)->prev->n)
-					*list = (*list)->prev;
+				start_of_list(list);
 				print_list(*list);
 			}
 			else

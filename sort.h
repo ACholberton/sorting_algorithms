@@ -35,6 +35,7 @@ void forward_Shake(listint_t *current);
 void backward_shake(listint_t *current);
 void cocktail_shaker(listint_t **list);
 void cocktail_sort_list(listint_t **list);
+void start_of_list(listint_t **list);
 void counting_sort(int *array, size_t size);
 void value_checker(int *array, int *new_array, size_t size);
 void array_for_print(int *new_array, size_t size);
