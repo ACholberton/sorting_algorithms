@@ -15,13 +15,10 @@
  * understanding, treat each value in the array like a string
  * and that we are reading from right to left
  */
-void lsd_sort(int *array, size_t size, size_t digit_pointer)
+void lsd_sort(int *array, int *count, int *temp, size_t size, size_t digit_pointer)
 {
-	int *temp = NULL, *count = NULL, j;
+	int j;
 	size_t i;
-
-	temp = malloc(sizeof(array[0]) * size);
-	count = malloc(sizeof(array[0]) * 10);
 
 	/*
 	 * Initialization to 0 is necessary. Apparently
@@ -50,9 +47,6 @@ void lsd_sort(int *array, size_t size, size_t digit_pointer)
 		array[i] = temp[i];
 
 	print_array(array, size);
-
-	free(temp);
-	free(count);
 }
 
 /**
@@ -65,6 +59,7 @@ void lsd_sort(int *array, size_t size, size_t digit_pointer)
 void radix_sort(int *array, size_t size)
 {
 	size_t max_value = 0, i;
+	int *count = NULL, *temp = NULL;
 
 	if (array == NULL || size < 2)
 		return;
@@ -73,6 +68,12 @@ void radix_sort(int *array, size_t size)
 		if (array[i] > (int)max_value)
 			max_value = array[i];
 
+	temp = malloc(sizeof(int *) * size);
+	count = malloc(sizeof(int *) * 10);
+
 	for (i = 1; max_value / i > 0; i *= 10)
-		lsd_sort(array, size, i);
+		lsd_sort(array, count, temp, size, i);
+
+	free(count);
+	free(temp);
 }
