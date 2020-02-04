@@ -40,6 +40,12 @@ void backward_shake(listint_t *current)
 	temp->prev = current;
 }
 
+/**
+ * start_of_list - Function that ensures list is always pointing
+ * to the beginning of the linked list
+ * @list: The unsorted linked list
+ * Return: Nothing
+ */
 void start_of_list(listint_t **list)
 {
 	while ((*list)->prev != NULL && (*list)->n > (*list)->prev->n)
