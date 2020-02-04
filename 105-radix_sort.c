@@ -3,6 +3,8 @@
 /**
  * lsd_sort - Function that sorts an array using LSD Radix Sort
  * @array: The array to be sorted
+ * @count: Array for counting
+ * @temp: The temporary array
  * @size: The size of the passed in array
  * @digit_pointer: Points to the digit in each value
  * Return: Nothing
@@ -15,7 +17,8 @@
  * understanding, treat each value in the array like a string
  * and that we are reading from right to left
  */
-void lsd_sort(int *array, int *count, int *temp, size_t size, size_t digit_pointer)
+void lsd_sort(int *array, int *count, int *temp, size_t size,
+		size_t digit_pointer)
 {
 	int j;
 	size_t i;
@@ -68,8 +71,16 @@ void radix_sort(int *array, size_t size)
 		if (array[i] > (int)max_value)
 			max_value = array[i];
 
-	temp = malloc(sizeof(int *) * size);
-	count = malloc(sizeof(int *) * 10);
+	temp = malloc(sizeof(array) * (size));
+	if (temp == NULL)
+		return;
+
+	count = malloc(sizeof(array) * (size));
+	if (count == NULL)
+	{
+		free(temp);
+		return;
+	}
 
 	for (i = 1; max_value / i > 0; i *= 10)
 		lsd_sort(array, count, temp, size, i);
