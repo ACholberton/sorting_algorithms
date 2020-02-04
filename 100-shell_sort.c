@@ -14,13 +14,17 @@ void shell_sort(int *array, size_t size)
 
 	if (array == NULL || size < 2)
 		return;
+	while (gap <= size)
+	{
+		gap = gap * 3 + 1;
+	}
 	for (gap = size / 2; gap > 0; gap /= 2)
 	{
 		for (i = gap; i < size; i++)
 		{
 			tmp = array[i];
 			for (j = i; j >= gap && tmp < array[j - gap];
-			    j -= gap)
+			     j -= gap)
 			{
 				array[j] = array[j - gap];
 			}
