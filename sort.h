@@ -45,5 +45,7 @@ void rebuild_array(int *array, int *temp, size_t begin, size_t mid,
 			size_t end);
 void print_before_merge(int *array, int *temp, size_t begin, size_t mid,
 			size_t end);
+void radix_sort(int *array, size_t size);
+void lsd_sort(int *array, size_t size, size_t digit_pointer);
 
 #endif
